@@ -1,0 +1,147 @@
+@charset "UTF-8";
+html{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+img{
+  max-width: 100%;
+}
+li{
+  color: gray;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 15px 0 24px;
+}
+header li{
+  list-style: none;
+  padding: 32px;
+  color:inherit;
+  text-decoration: none;
+}
+.navicon{
+  margin-top: 27.5px;
+}
+.site-title {
+  width: 120px;
+  padding: 10px 0;
+}
+
+
+.mainvisual{
+  display: flex;
+  border-radius: 24px;
+  position: relative;
+}
+.icon{
+  border: solid 1px #EEEEEE;
+  border-radius: 75px;
+  margin: 16px;
+}
+
+.mainvisual{
+  position: relative;
+  border-radius: 24px;
+}
+
+
+.mainphoto{
+  display: block;
+  margin-left: auto;
+
+}
+.Rectangle{
+  display: block;
+  background-color: #EFF2F5;
+  position: absolute;
+  top: 29.1%;
+  left: 80px;
+  display: flex;
+  height: 680px;
+  align-items: center;
+  flex-flow: column;
+  width: 34%;
+  height: 281px;
+  border-radius: 24px;
+}
+.scrolldown{
+  position:absolute;
+  top: 85%;
+  left: 112px;
+  list-style: square;
+
+}
+.Rectangle > p{
+  color: #314deb;
+  margin: 40px auto 0 auto;
+}
+.Rectangle > h2{
+  font-size: 60px;
+  margin: 12px;
+
+}
+
+
+
+.nav{
+  font-size: 14px;
+  display: flex;
+  padding: 10px 0;
+}
+.linekeyVisual > img{
+  border-radius: 24px;
+}
+.officialline{
+  border-radius: 24px;
+  position: relative;
+  display: block;
+  text-align: center;
+  margin: 80px;
+}
+.linetext{
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 16%;
+  background: rgb(0, 113, 188, 0.9);
+  color: rgb(255, 255, 255);
+  width: 68%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  height: 357px;
+}
+
+
+.lineAddiction{
+  background: rgb(255, 255, 255);
+  color: rgb(110, 110, 110);
+  width: 320px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+}
+
+
+.possesite{
+  display: block;
+  text-align: center;
+  border-top: solid 1px rgb(214, 211, 211);
+  border-bottom: solid 1px rgb(214, 211, 211);
+  padding: 56.12px;
+}
+
+
+.footer2{
+  font-size: 10px;
+  display: block;
+  text-align: center;
+  border-top: rgb(235, 230, 230);
+  padding: 36px;
+}
