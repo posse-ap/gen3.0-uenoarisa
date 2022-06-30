@@ -99,6 +99,14 @@ header li{
   text-align: center;
   margin: 80px;
 }
+.lineicon{
+  background-color: #EFF2F5;
+}
+.line{
+  display: flex;
+  align-items: center;
+}
+
 .linetext{
   font-size: 14px;
   position: absolute;
