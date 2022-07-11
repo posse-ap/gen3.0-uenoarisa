@@ -8,6 +8,32 @@ img{
 li{
   color: gray;
 }
+.banar{
+  display:flex;
+  position: fixed;
+  bottom:16px;
+  right:16px;
+  width:288px;
+  height:80px;
+  z-index: 998;
+  background-color: #5FDF5B;
+  align-items: center;
+  border-radius: 16px;
+}
+.line-icon{
+  background-color: #EEEEEE;
+
+}
+
+.banar>p{
+  margin: 0px;
+  color: #EEEEEE;
+}
+.banar>img{
+ margin: 24px;
+}
+
+
 header{
   display: flex;
   justify-content: space-between;
@@ -80,6 +106,29 @@ header li{
   margin: 12px;
 
 }
+.title{
+  text-align: center;
+}
+.title>p{
+  color: #0071BC;
+}
+.title>h2{
+  font-size: 36px;
+}
+.colum{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.colum>p{
+  width: 472px;
+  margin: 40px;
+  font-size: 14px;
+  line-height: 25.2px;
+}
+.colum>img{
+  border-radius: 24px;
+}
 
 
 
@@ -124,7 +173,12 @@ header li{
   border-radius: 24px;
   height: 357px;
 }
-
+.linetext>h2{
+  margin: 16px;
+}
+.linetext>p{
+  line-height: 22.4px;
+}
 
 .lineAdd{
   background: rgb(255, 255, 255);
@@ -135,6 +189,7 @@ header li{
   justify-content: center;
   align-items: center;
   border-radius: 24px;
+  margin:20px;
 }
 .lineAddiction{
   display: flex;
