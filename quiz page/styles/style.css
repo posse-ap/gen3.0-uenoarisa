@@ -1,39 +1,16 @@
-@charset "UTF-8";
 html{
   font-family: 'Noto Sans JP', sans-serif;
 }
 img{
   max-width: 100%;
 }
-li{
+.navicon{
   color: gray;
 }
-.banar{
-  display:flex;
-  position: fixed;
-  bottom:16px;
-  right:16px;
-  width:288px;
-  height:80px;
-  z-index: 998;
-  background-color: #5FDF5B;
-  align-items: center;
-  border-radius: 16px;
+li{
+  list-style: none;
+  text-decoration: none;
 }
-.line-icon{
-  background-color: #EEEEEE;
-
-}
-
-.banar>p{
-  margin: 0px;
-  color: #EEEEEE;
-}
-.banar>img{
- margin: 24px;
-}
-
-
 header{
   display: flex;
   justify-content: space-between;
@@ -52,53 +29,10 @@ header li{
   margin-top: auto;
   margin-bottom: auto;
 }
-.site-title {
-  width: 120px;
-  padding: 10px 0;
-}
-
-
-.mainvisual{
-  display: flex;
-  border-radius: 24px;
-  position: relative;
-}
 .icon{
   border: solid 1px #EEEEEE;
   border-radius: 75px;
   margin: 16px;
-}
-
-.mainvisual{
-  position: relative;
-  border-radius: 24px;
-}
-
-
-.mainphoto{
-  display: block;
-  margin-left: auto;
-
-}
-.Rectangle{
-  display: block;
-  background-color: #EFF2F5;
-  position: absolute;
-  top: 29.1%;
-  left: 80px;
-  display: flex;
-  height: 680px;
-  align-items: center;
-  flex-flow: column;
-  width: 34%;
-  height: 281px;
-  border-radius: 24px;
-}
-.scrolldown{
-  position:absolute;
-  top: 85%;
-  left: 112px;
-  list-style: square;
 }
 .Rectangle > p{
   color: #314deb;
@@ -109,32 +43,6 @@ header li{
   margin: 12px;
 
 }
-.title{
-  text-align: center;
-}
-.title>p{
-  color: #0071BC;
-}
-.title>h2{
-  font-size: 36px;
-}
-.colum{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.colum>p{
-  width: 472px;
-  margin: 40px;
-  font-size: 14px;
-  line-height: 25.2px;
-}
-.colum>img{
-  border-radius: 24px;
-}
-
-
-
 .nav{
   font-size: 14px;
   display: flex;
@@ -217,3 +125,82 @@ header li{
   border-top: rgb(235, 230, 230);
   padding: 36px;
 }
+/* クイズページのパーツ */
+.mainvisual{
+  height: 320px;
+  position: relative;
+  color: #EEEEEE;
+}
+.mainvisual>p{
+  position: absolute;
+  top:110px;
+  left:204px;
+  font-size: 18px;
+  margin: 12px;
+}
+.mainvisual>h1{
+  position: absolute;
+  top:154px;
+  left:204px;
+  font-size: 60px;
+  margin: 12px;
+}
+/* クイズ */
+main{
+  margin-right:15%;
+  margin-left: 15%;
+  margin-top: 120px;
+}
+.question{
+  color: #EEEEEE;
+  background-color: #0071BC;
+  height: 70px;
+  width: 85px;
+  border-radius: 8px;
+  height: 70px;
+  line-height: 70px;
+  width: 92px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 36px;
+  margin: 0;
+
+}
+.answer{
+  color:#EEEEEE;
+  background-color: #E34E70;
+  height: 70px;
+  width: 58px;
+  line-height: 70px;
+  border-radius: 8px;
+  text-align: center;
+  padding: 8px 16px;
+  font-size: 36px;
+  margin-top: 24px;
+}
+.questiontext{
+  font-size: 36px;
+  margin: 0;
+}
+.option{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 0;
+  padding-left: 0;
+}
+.option>li{
+  height: 80px;
+  font-size: 18px;
+  background: #EFF2F5;
+  width: 313px;
+  margin:16px 24px;
+  padding-left: 24px;
+  line-height: 80px;
+  border-radius: 8px;
+}
+.option>li:first-child{
+  margin-left: 0;
+}
+
