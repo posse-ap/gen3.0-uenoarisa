@@ -33,6 +33,7 @@ header li{
   border: solid 1px #EEEEEE;
   border-radius: 75px;
   margin: 16px;
+  padding: 16px;
 }
 .Rectangle > p{
   color: #314deb;
@@ -164,7 +165,7 @@ main{
   padding: 8px 16px;
   text-align: center;
   font-size: 36px;
-  margin: 0;
+  margin: 120px 0 24px 0;
 
 }
 .answer{
@@ -181,26 +182,44 @@ main{
 }
 .questiontext{
   font-size: 36px;
-  margin: 0;
+  margin: 24px 0;
 }
 .option{
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-left: 0;
+  margin-right: 0;
   padding-left: 0;
+  cursor: pointer;
 }
 .option>li{
   height: 80px;
   font-size: 18px;
-  background: #EFF2F5;
+  background: #FFFFFF;
   width: 313px;
   margin:16px 24px;
   padding-left: 24px;
   line-height: 80px;
   border-radius: 8px;
+  border: 5px solid #EEEEEE;
 }
 .option>li:first-child{
   margin-left: 0;
 }
+.option>li:last-child{
+  margin-right: 0;
+}
 
+.quote{
+  background: #F6F6F6;
+  border-radius: 8px;
+  height: 80px;
+  line-height: 18px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.quote>img{
+  margin: 15px;
+}

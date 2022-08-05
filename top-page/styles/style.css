@@ -22,7 +22,6 @@ li{
 }
 .line-icon{
   background-color: #EEEEEE;
-
 }
 
 .banar>p{
@@ -67,6 +66,7 @@ header li{
   border: solid 1px #EEEEEE;
   border-radius: 75px;
   margin: 16px;
+  padding: 16px;
 }
 
 .mainvisual{
