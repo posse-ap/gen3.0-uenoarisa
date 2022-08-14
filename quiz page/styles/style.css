@@ -212,6 +212,7 @@ main{
 }
 
 .quote{
+  margin-top: 10px;
   background: #F6F6F6;
   border-radius: 8px;
   height: 80px;
@@ -222,4 +223,40 @@ main{
 }
 .quote>img{
   margin: 15px;
+}
+
+.correctbox>h4{
+  font-size: 24px;
+  color: #E34E70;
+  padding: 24px 800px 22px 24px;
+  margin: 0;
+}
+.correctbox{
+  display: none;
+  background: #FFF2F5;
+  height: 143px;
+}
+.correctbox>p{
+  font-size: 18px;
+  padding-left: 20px;
+  padding-top: 0;
+  margin: 0;
+}
+.falsebox>p{
+  font-size: 18px;
+  padding-left: 20px;
+  padding-top: 0;
+  margin: 0;
+}
+.falsebox>h4{
+  font-size: 24px;
+  color: #0071BC;
+  padding: 24px 800px 22px 24px;
+  margin-bottom: 0;
+}
+.falsebox{
+  display: none;
+  background: #EFF2F5;
+  height: 143px;
+  margin-bottom: 20px;
 }
