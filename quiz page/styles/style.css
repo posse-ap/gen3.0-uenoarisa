@@ -152,7 +152,7 @@ main{
   margin-left: 15%;
   margin-top: 120px;
 }
-.question{
+.js-quiz>h2{
   color: #EEEEEE;
   background-color: #0071BC;
   height: 70px;
@@ -231,6 +231,7 @@ main{
   padding: 24px 800px 22px 24px;
   margin: 0;
 }
+
 .correctbox{
   display: none;
   background: #FFF2F5;
