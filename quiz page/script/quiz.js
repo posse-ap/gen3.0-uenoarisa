@@ -39,15 +39,22 @@
   const quizContainer = document.getElementById('js-quizContainer');
 
   for (let i=0; i<6; i++){
+    let data1 = ALL_QUIZ[i].answers;
+    for (let g = ALL_QUIZ[i].answers.length - 1; g >= 0; g--) {
+      const j = Math.floor(Math.random() * (g+1));
+      console.log(g,j);
+      [data1[j], data1[g]] = [data1[g], data1[j]];
+    };
+
   let createQuizHtml = `<li class="js-quiz" id="content_area" data-quiz="${i}">
   <h2 class="question">Q${i+1}</h2>
   <p class="questiontext">${ALL_QUIZ[i].question}</p>
   <img src="img/quiz/img-quiz0${i+1}.png" alt="">
   <h3 class="answer">A</h3>
   <ul class="option">
-    <li  class="option-content" id="option0-${i}" data-answer="0">${ALL_QUIZ[i].answers[0]}</li>
-    <li class="option-content" id="option1-${i}" data-answer="1">${ALL_QUIZ[i].answers[1]}</li>
-    <li class="option-content"id="option2-${i}" data-answer="2">${ALL_QUIZ[i].answers[2]}</li>
+    <li  class="option-content" id="option0-${i}" data-answer="0">${data1[0]}</li>
+    <li class="option-content" id="option1-${i}" data-answer="1">${data1[1]}</li>
+    <li class="option-content"id="option2-${i}" data-answer="2">${data1[2]}</li>
   </ul>
   <div class="correctbox" id="correctbox-${i}">
     <h4>正解！</h4>
@@ -82,32 +89,16 @@
         if (selectedAnswer==ALL_QUIZ[selectedQuiz].correctNumber ){
           let ele = document.getElementById(`correctbox-${selectedQuiz}`);
           ele.style.display = 'block';
-          let main = document.getElementById(`option${selectedAnswer}-${selectedQuiz}`)
-          main.style.backgroundColor = '#EFF2F5';
-          main.style.color ="#0071BC";
-          main.style.border="5px solid #0071BC";
         }
         else{
           let ele1 = document.getElementById(`falsebox-${selectedQuiz}`);
           ele1.style.display = 'block';
-          let main = document.getElementById(`option${selectedAnswer}-${selectedQuiz}`);
-          main.style.backgroundColor = '#EFF2F5';
-          main.style.color ="#0071BC";
-          main.style.border="5px solid #0071BC";
       };
+      let main = document.getElementById(`option${selectedAnswer}-${selectedQuiz}`)
+      main.style.backgroundColor = '#EFF2F5';
+      main.style.color ="#0071BC";
+      main.style.border="5px solid #0071BC";
       });
   });
 });
 };
-
-  // const createQuizHtml = (quizItem, questionNumber) => {
-  //   const answersHtml = quizItem.answers.map((answer, answerIndex) => `<li class="p-quiz-box__answer__item">
-  //   <button class="p-quiz-box__answer__button js-answer" data-answer="${answerIndex}">
-  //     ${answer}<i class="u-icon__arrow"></i>
-  //   </button>
-  //   </li>`
-  //   ).join('');
-
-  //   const noteHtml = quizItem.note ? `<cite class="p-quiz-box__note"><i class="u-icon__note></i>${quizItem.note}
-  //   </cite>`:"";
-  // }
