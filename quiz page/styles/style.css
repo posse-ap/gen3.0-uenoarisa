@@ -18,6 +18,10 @@ header{
   margin: 15px 15px 0 24px;
   height: 80px;
 }
+a {
+  text-decoration:none; 
+  color:inherit;
+}
 header li{
   list-style: none;
   padding: 32px;
@@ -49,48 +53,7 @@ header li{
   display: flex;
   padding: 10px 0;
 }
-.linekeyVisual > img{
-  border-radius: 24px;
-}
-.officialline{
-  border-radius: 24px;
-  position: relative;
-  display: block;
-  text-align: center;
-  margin: 80px;
-}
-.lineicon{
-  background-color: #EFF2F5;
-  padding: 0;
-}
-.line{
-  display: flex;
-  align-items: center;
-  font-size: 36px;
-}
 
-.linetext{
-  font-size: 14px;
-  position: absolute;
-  top: 0;
-  left: 16%;
-  background: rgb(0, 113, 188, 0.9);
-  color: rgb(255, 255, 255);
-  width: 68%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 24px;
-  height: 357px;
-}
-.linetext>h2{
-  margin: 16px;
-}
-.linetext>p{
-  line-height: 22.4px;
-}
 
 .lineAdd{
   background: rgb(255, 255, 255);
@@ -127,31 +90,9 @@ header li{
   padding: 36px;
 }
 /* クイズページのパーツ */
-.mainvisual{
-  height: 320px;
-  position: relative;
-  color: #EEEEEE;
-}
-.mainvisual>p{
-  position: absolute;
-  top:110px;
-  left:204px;
-  font-size: 18px;
-  margin: 12px;
-}
-.mainvisual>h1{
-  position: absolute;
-  top:154px;
-  left:204px;
-  font-size: 60px;
-  margin: 12px;
-}
+
 /* クイズ */
-main{
-  margin-right:15%;
-  margin-left: 15%;
-  margin-top: 120px;
-}
+
 .js-quiz>h2{
   color: #EEEEEE;
   background-color: #0071BC;
@@ -180,36 +121,9 @@ main{
   font-size: 36px;
   margin-top: 24px;
 }
-.questiontext{
-  font-size: 36px;
-  margin: 24px 0;
-}
-.option{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  cursor: pointer;
-}
-.option>li{
-  height: 80px;
-  font-size: 18px;
-  background: #FFFFFF;
-  width: 313px;
-  margin:16px 24px;
-  padding-left: 24px;
-  line-height: 80px;
-  border-radius: 8px;
-  border: 5px solid #EEEEEE;
-}
-.option>li:first-child{
-  margin-left: 0;
-}
-.option>li:last-child{
-  margin-right: 0;
-}
+
+
+
 
 .quote{
   margin-top: 10px;
@@ -260,4 +174,376 @@ main{
   background: #EFF2F5;
   height: 143px;
   margin-bottom: 20px;
+}
+.header__nav{
+  display:none;
+}
+/* スマホ */
+@media screen and (max-width: 770px) {
+  .openbtn2{
+    position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+    width: 80px;
+    height:50px;
+    cursor: pointer;
+    background:#fff;
+    right: 0;
+  }
+  .openbtn2 span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 13px;
+    height: 2px;
+    background-color: #666;
+  }
+  
+  
+  .openbtn2 span:nth-of-type(1) {
+    top:22px; 
+    width: 70%;
+  }
+  
+  .openbtn2 span:nth-of-type(2) {
+    top:29px;
+    width:70%;
+  }
+  .openbtn2.active span:nth-of-type(1) {
+    top: 20px;
+    left: 16px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 70%;
+  }
+  
+  .openbtn2.active span:nth-of-type(2) {
+    top: 32px;
+    left: 16px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 70%;
+  }
+  .header-front{
+    z-index: 999;
+    display: flex;
+    width: 100%;
+    right: 0;
+    top:0;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+  }
+  
+  .header__nav{
+    display: none;
+  }
+  
+  .header__nav.active{
+    display: block;
+    position:fixed;
+    z-index: 990;
+    bottom: 0;
+    right: 0;
+    width:100%;
+    height: 100vh;/*ナビの高さ*/
+    background-color: #ffffff;
+  }
+  .nav__items{
+    margin: 136px auto;
+    text-align: center;
+    padding: 0%;
+    font-size: 24px;
+  }
+  
+  .nav{
+    display: none;
+  }
+  header{
+    height: 60px;
+  }
+  .mainvisual>img{
+    height:159px;
+    width:100%;
+    position:relative;
+  }
+  .mainvisual>h1{
+    position: absolute;
+    top:145px;
+    left: 10%;
+    font-size: 28px;
+    color: #EEEEEE;
+  }
+  .mainvisual>p{
+    position:absolute;
+    top:120px;
+    left: 10%;
+    font-size: 14px;
+    color: #EEEEEE;
+  }
+  main{
+    margin-right:15px;
+    margin-left: 15px;
+  }
+  #question-1{
+    margin-top: 48px;
+  }
+  .option{
+    display: block;
+    margin:8px 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    cursor: pointer;
+  }
+  .option>li{
+    height: 58px;
+    font-size: 18px;
+    background: #FFFFFF;
+    width: 90%;
+    padding-left: 16px;
+    padding-bottom: 10px;
+    margin:8px ;
+    line-height: 80px;
+    border-radius: 8px;
+    border: 5px solid #EEEEEE;
+    align-items: center;
+  }
+  .linekeyVisual > img{
+    width:98%;
+    height:373px;
+    border-radius: 24px;
+  }
+  .officialline{
+    margin-left: 4%;
+    margin-top: 73px;
+    margin-bottom: 73px;
+    width: 90%;
+    border-radius: 24px;
+    position: relative;
+    display: block;
+    text-align: center;
+  }
+  .lineicon{
+    background-color: #EFF2F5;
+    margin-top: 40px;
+  }
+  .line{
+    font-size: 24px;
+    line-height: 43.3px;
+    display: block;
+    align-items: center;
+  }
+  
+  .linetext{
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 1%;
+    background: rgb(0, 113, 188, 0.9);
+    color: rgb(255, 255, 255);
+    width: 98%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    height: 373px;
+  }
+  
+  .line>img{
+    margin-top:5;
+  }
+  .linetext>p{
+    line-height: 22.4px;
+    margin:3px;
+    font-size: 14px;
+  }
+  .linetext>h2{
+    margin-top:0;
+  
+  }
+  .lineAdd{
+    background: rgb(255, 255, 255);
+    color: rgb(110, 110, 110);
+    width: 320px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    margin:20px;
+  }
+  .lineAddiction{
+    display: flex;
+    justify-content: center;
+    padding: 90px;
+  }
+  .nav-footer{
+    margin:150px auto;
+    text-align: center;
+  }
+  .nav-line{
+    background-color: #5FDF5B;
+    border-radius: 30px;
+  }
+  .nav-line>p{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #EEEEEE;
+  }
+  .nav-footer{
+    color: #666666;
+  }
+  .footerNav-item{
+    padding: 10px;
+    padding-top: 20px;
+    border: 1px solid #EEEEEE;
+    border-radius: 45px;
+  }
+  .questiontext{
+    font-size: 18px;
+    line-height: 32.4px;
+    margin: 24px 0;
+  }
+  
+
+
+  
+
+  
+}
+/* pc */
+@media  screen and (min-width: 770px) {
+  .mainvisual{
+    position: relative;
+    color: #EEEEEE;
+  }
+  .mainvisual>img{
+    height: 320px;
+  }
+  .mainvisual>p{
+    position: absolute;
+    bottom: 178px;
+    left:204px;
+    font-size: 18px;
+    margin: 12px;
+  }
+  .mainvisual>h1{
+    position: absolute;
+    bottom: 78px;
+    max-height: 320px;
+    left:204px;
+    font-size: 60px;
+    margin: 12px;
+  }
+  main{
+    margin-right:15%;
+    margin-left: 15%;
+    margin-top: 120px;
+  }
+  .option>li:first-child{
+    margin-left: 0;
+  }
+  .option>li:last-child{
+    margin-right: 0;
+  }
+  .option{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    cursor: pointer;
+  }
+  .option>li{
+    height: 80px;
+    font-size: 18px;
+    background: #FFFFFF;
+    width: 313px;
+    margin:16px 24px;
+    padding-left: 24px;
+    line-height: 80px;
+    border-radius: 8px;
+    border: 5px solid #EEEEEE;
+  }
+  .linekeyVisual > img{
+    width:98%;
+    height:373px;
+    border-radius: 24px;
+  }
+  .officialline{
+    margin-left: 4%;
+    margin-bottom: 73px;
+    margin-top: 130px;
+    width: 90%;
+    border-radius: 24px;
+    position: relative;
+    display: block;
+    text-align: center;
+  }
+  .lineicon{
+    background-color: #EFF2F5;
+    margin-top: 40px;
+  }
+  .line{
+    font-size: 24px;
+    line-height: 43.3px;
+    display: block;
+    align-items: center;
+  }
+  
+  .linetext{
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 1%;
+    background: rgb(0, 113, 188, 0.9);
+    color: rgb(255, 255, 255);
+    width: 98%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24px;
+    height: 373px;
+  }
+  
+  .line>img{
+    margin-top:5;
+  }
+  .linetext>p{
+    line-height: 22.4px;
+    margin:3px;
+    font-size: 14px;
+  }
+  .linetext>h2{
+    margin-top:0;
+  
+  }
+  .lineAdd{
+    background: rgb(255, 255, 255);
+    color: rgb(110, 110, 110);
+    width: 320px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    margin:20px;
+  }
+  .lineAddiction{
+    display: flex;
+    justify-content: center;
+    padding: 90px;
+  }
+  .questiontext{
+    font-size: 36px;
+    line-height: 54px;
+    margin: 24px 0;
+  }
+  
+
+
+
 }

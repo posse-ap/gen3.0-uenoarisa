@@ -38,16 +38,30 @@
 
   const quizContainer = document.getElementById('js-quizContainer');
 
+  let data2 = [];
+ 
+  for(let i=0; i<6; i++){
+    data2[i] = [];
+	  for(let j=0; j<3; j++){
+		  data2[i][j] = j;
+	  }
+  }
+  console.log(data2);
+
   for (let i=0; i<6; i++){
-    let data1 = ALL_QUIZ[i].answers;
+    let data1 = ALL_QUIZ[i].answers.concat();
     for (let g = ALL_QUIZ[i].answers.length - 1; g >= 0; g--) {
       const j = Math.floor(Math.random() * (g+1));
-      console.log(g,j);
       [data1[j], data1[g]] = [data1[g], data1[j]];
+      [data2[i][j], data2[i][g]] = [data2[i][g], data2[i][j]];
     };
+  console.log(data1);
+  console.log(data2);
+
+
 
   let createQuizHtml = `<li class="js-quiz" id="content_area" data-quiz="${i}">
-  <h2 class="question">Q${i+1}</h2>
+  <h2 class="question" id="question-${i+1}">Q${i+1}</h2>
   <p class="questiontext">${ALL_QUIZ[i].question}</p>
   <img src="img/quiz/img-quiz0${i+1}.png" alt="">
   <h3 class="answer">A</h3>
@@ -72,9 +86,9 @@
   </aside>`;
   };
 
+  
   quizContainer.insertAdjacentHTML('beforeend', createQuizHtml);
-  };
-
+};
 
   const allQuiz = document.querySelectorAll('.js-quiz');
   allQuiz.forEach(quiz =>{
@@ -82,23 +96,34 @@
     const selectedQuiz = quiz.getAttribute('data-quiz');
     answers.forEach(answer => {
       answer.addEventListener('click', ()=>{
-        console.log(selectedQuiz);
-        let selectedAnswer = answer.getAttribute('data-answer')
-        console.log(selectedAnswer);
-        console.log(ALL_QUIZ[selectedQuiz].correctNumber)
-        if (selectedAnswer==ALL_QUIZ[selectedQuiz].correctNumber ){
-          let ele = document.getElementById(`correctbox-${selectedQuiz}`);
+        let selectedAnswer = answer.getAttribute('data-answer');
+        let ele = document.getElementById(`correctbox-${selectedQuiz}`);
+        let ele1 = document.getElementById(`falsebox-${selectedQuiz}`);
+
+        if (data2[selectedQuiz][selectedAnswer]==ALL_QUIZ[selectedQuiz].correctNumber && ele1.style.display!=='block'){
           ele.style.display = 'block';
+          let main = document.getElementById(`option${selectedAnswer}-${selectedQuiz}`)
+          main.style.backgroundColor = '#EFF2F5';
+          main.style.color ="#0071BC";
+          main.style.border="5px solid #0071BC";
         }
-        else{
-          let ele1 = document.getElementById(`falsebox-${selectedQuiz}`);
+        else if (data2[selectedQuiz][selectedAnswer]!==ALL_QUIZ[selectedQuiz].correctNumber && ele.style.display!=='block'){
           ele1.style.display = 'block';
+          let main = document.getElementById(`option${selectedAnswer}-${selectedQuiz}`)
+          main.style.backgroundColor = '#EFF2F5';
+          main.style.color ="#0071BC";
+          main.style.border="5px solid #0071BC";
       };
-      let main = document.getElementById(`option${selectedAnswer}-${selectedQuiz}`)
-      main.style.backgroundColor = '#EFF2F5';
-      main.style.color ="#0071BC";
-      main.style.border="5px solid #0071BC";
+      
       });
   });
 });
+
+const btn = document.getElementById('js-hamberger');
+const nav = document.getElementById('js-nav');
+
+btn.addEventListener("click",()=>{
+  btn.classList.toggle('active');
+  nav.classList.toggle('active');
+})
 };
