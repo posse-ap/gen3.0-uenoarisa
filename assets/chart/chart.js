@@ -58,7 +58,8 @@
     labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
     datasets: [{
       data: [3,4,5,3,0,0,4,2,2,8,8,2,2,1,7,4,4,3,3,3,2,6,2,2,1,1,1,7,8],
-      backgroundColor:['blue', '#4141f5', '#24c7e4d0'],
+      backgroundColor:['blue'],
+      barThickness: 10
     }]
   };
 
@@ -67,33 +68,7 @@
   var options = {
     cutoutPercentage: 40
   };
-//   var option3 = {
-//     scales: {
-//         yAxes: [{
-//             gridLines: {
-//                 color: "rgba(0, 0, 0, 0)",
-//             }   
-//         }]
-//     }
-// }
 
-  // var option3 = {
-  //   scales: {
-  //     xAxes: [{
-  //       display: false,
-  //       stacked: false,
-  //       gridLines: {
-  //         display:false
-  //       }
-  //     }],
-  //     yAxes: [{
-  //       display: false,
-  //       gridLines: {
-  //         display: false
-  //       }
-  //     }]
-  //   }
-  // }
 
   var ctx0 = document.getElementById('js-study-language_chart').getContext('2d');
   var myChart0 = new Chart(ctx0, {
@@ -111,31 +86,30 @@
   });
 
   var ctx2 = document.getElementById('js-hours-bargraph').getContext('2d');
+
   var myChart2 = new Chart(ctx2, {
     type: 'bar',
     data: data3,
     options:{
       plugins: {
         legend: false
-    },
-    scales:{
-      bar: {groupWidth: "30%"}, // バーの太
-
-    // x:{
-    //   gridlines:{
-    //     color:"white" 
-    // },
-    // y:{
-    //   gridlines:{
-    //     color:"white" 
+      },
+      scales:{
+        bar: {groupWidth: "30%"}, // バーの太さ
+        y: {
+          beginAtZero: true,
+          grid: {
+            display: false
+          }
+        },
+        x: {
+          grid: {
+            display:false
+          }
+      }
     
-  
-    
-// }}
-  
-
-  
-} }
+    } 
+}
   });
 
 
