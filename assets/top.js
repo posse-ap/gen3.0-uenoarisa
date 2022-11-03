@@ -5,6 +5,7 @@
   let cover = document.getElementById('js-cover');
   let modalbtn2 = document.getElementById('js-modal-btn2');
   let complete = document.getElementById('js-complete');
+  let loading = document.getElementById('js-loading')
   btn.addEventListener('click', () => {
     modal.classList.add('active');
     modal.classList.remove('close');
@@ -20,6 +21,12 @@
 
 
   modalbtn2.addEventListener('click', () => {
+    loading.classList.add("active")
+    let jstwitter = document.getElementById("js-twitter");
+    if (jstwitter.checked){
+      twitText();
+    }
+    setTimeout(() => {loading.classList.remove('active')}, 5000);
     complete.classList.add('active');
   });
 
@@ -30,6 +37,14 @@
     modal.classList.remove('active');
     cover.classList.remove('active');
   });
+
+
+
+
+  // let calendarbtn = document.getElementById('js-calender');
+  // calendarbtn.addEventListener('click',()=>{
+  //   date = 
+  // })
 
   // カレンダー＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 
@@ -44,6 +59,10 @@
   calenderarrow.addEventListener('click', ()=>{
     wrapper.classList.remove('active')
   })
+  let calenderbtn= document.getElementById('js-calender');
+  calenderbtn.addEventListener('click', () => {
+    wrapper.classList.remove('active');
+  });
 
   const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const today = new Date();
@@ -115,7 +134,7 @@
             && count == today.getDate()) {
             calendar += `<td class="date today" data-date=${count} data-month=${month+1} onclick="getdate()">`+count +`</td>`
           } else {
-            calendar += `<td class="date" data-date=${count} data-month=${month+1} onclick="getdate()">` + count + "</td>";
+            calendar += `<td class="date" data-date=${count} data-month=${month+1} onclick="getdate(${count},${month+1})">` + count + "</td>";
           }
         }
       }
@@ -125,187 +144,25 @@
   }
 
 
-  // データ取得
-//  const DATA_URLS = [
-//   'http://posse-task.anti-pattern.co.jp/1st-work/study_time.json',
-//   'http://posse-task.anti-pattern.co.jp/1st-work/study_language.json',
-//   'http://posse-task.anti-pattern.co.jp/1st-work/study_contents.json'
-//  ];
- 
- 
-//  let dataset0=[
-//   {
-//     "day": 1,
-//     "time": 3
-// },
-// {
-//     "day": 2,
-//     "time": 4
-// },
-// {
-//     "day": 3,
-//     "time": 5
-// },
-// {
-//     "day": 4,
-//     "time": 3
-// },
-// {
-//     "day": 5,
-//     "time": 0
-// },
-// {
-//     "day": 6,
-//     "time": 0
-// },
-// {
-//     "day": 7,
-//     "time": 4
-// },
-// {
-//     "day": 8,
-//     "time": 2
-// },
-// {
-//     "day": 9,
-//     "time": 2
-// },
-// {
-//     "day": 10,
-//     "time": 8
-// },
-// {
-//     "day": 11,
-//     "time": 8
-// },
-// {
-//     "day": 12,
-//     "time": 2
-// },
-// {
-//     "day": 13,
-//     "time": 2
-// },
-// {
-//     "day": 14,
-//     "time": 1
-// },
-// {
-//     "day": 15,
-//     "time": 7
-// },
-// {
-//     "day": 16,
-//     "time": 4
-// },
-// {
-//     "day": 17,
-//     "time": 4
-// },
-// {
-//     "day": 18,
-//     "time": 3
-// },
-// {
-//     "day": 19,
-//     "time": 3
-// },
-// {
-//     "day": 20,
-//     "time": 3
-// },
-// {
-//     "day": 21,
-//     "time": 2
-// },
-// {
-//     "day": 22,
-//     "time": 2
-// },
-// {
-//     "day": 23,
-//     "time": 6
-// },
-// {
-//     "day": 24,
-//     "time": 2
-// },
-// {
-//     "day": 25,
-//     "time": 2
-// },
-// {
-//     "day": 26,
-//     "time": 1
-// },
-// {
-//     "day": 27,
-//     "time": 1
-// },
-// {
-//     "day": 28,
-//     "time": 1
-// },
-// {
-//     "day": 29,
-//     "time": 7
-// },
-// {
-//     "day": 30,
-//     "time": 8
-// }
-//  ]
-//  let dataset1= {
-//   "N予備校": 40,
-//   "ドットインストール": 20,
-//   "課題": 40
-// }
-// let dataset2=
-//     {
-//         "HTML": 30,
-//         "CSS": 20,
-//         "JavaScript": 10,
-//         "PHP": 5,
-//         "Laravel": 5,
-//         "SQL": 20,
-//         "SHELL": 20,
-//         "その他": 10
-//     }
-
-//  let DATA_JSON = [dataset0,dataset1,dataset2]
-//  for (let i=0; i<DATA_URLS.length; i++){
-//     fetch(DATA_URLS[i])
-//      .then(function(response){
-//       return response.json();
-//      })
-//      .then(function(jsonData){
-//       DATA_JSON[i].push(jsonData)
-//      });
-//  }
-
-//  fetch(DATA_URLS[0])
-//      .then(function(response){
-//       return response.json();
-//      })
-//      .then(function(jsonData){
-//       dataset0 =jsonData
-//      });
-//   fetch(DATA_URLS[1])
-//      .then(function(response){
-//       return response.json();
-//      })
-//      .then(function(jsonData){
-//       dataset1 =jsonData
-//      });
-//   fetch(DATA_URLS[2])
-//      .then(function(response){
-//       return response.json();
-//      })
-//      .then(function(jsonData){
-//       dataset2 =jsonData
-//      });
 
 
+  function twitText() {
+    var s, url;
+    const ta3 = document.getElementById('modal__textarea3').value;
+    s = ta3;
+    url = document.location.href;
+    
+    if (s != "") {
+      if (s.length > 140) {
+        //文字数制限
+        alert("テキストが140字を超えています");
+      } else {
+        //投稿画面を開く
+        url = "http://twitter.com/share?url=" + escape(url) + "&text=" + s;
+        window.open(url,"_blank","width=600,height=300");
+      }
+    }
+  }
 
-  
+
 }

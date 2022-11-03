@@ -54,19 +54,24 @@
     }]
   };
 
-  var data3 = {
-    labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
-    datasets: [{
-      data: [3,4,5,3,0,0,4,2,2,8,8,2,2,1,7,4,4,3,3,3,2,6,2,2,1,1,1,7,8],
-      backgroundColor:['blue'],
-      barThickness: 10
-    }]
-  };
-
-
+  
+ 
 
   var options = {
-    cutoutPercentage: 40
+    cutoutPercentage: 40,
+    plugins: {
+        tooltip: {
+             enabled: false
+       },
+        datalabels: {
+           font: {
+               size: 13,
+           },
+           formatter: function( value, context ) {
+               return value.toString() + '%';
+           }
+        }
+      }
   };
 
 
@@ -74,6 +79,10 @@
   var myChart0 = new Chart(ctx0, {
     type: type,
     data: data1,
+    options: options,
+    plugins: [
+      ChartDataLabels,
+  ],
   });
 
   // ['HTML', 'CSS', 'JavaScript',"PHP","Laravel","SQL","SHELL",]
@@ -82,10 +91,31 @@
   var myChart1 = new Chart(ctx1, {
     type: type,
     data: data2,
-    options: options
+    options: options,
+    plugins: [
+      ChartDataLabels,
+  ],
   });
 
   var ctx2 = document.getElementById('js-hours-bargraph').getContext('2d');
+
+  let gradient = ctx2.createLinearGradient(0, 300, 0, 0);
+  gradient.addColorStop(0, 'blue');
+  gradient.addColorStop(.1, 'blue');
+  gradient.addColorStop(.3, 'skyblue');
+
+  var data3 = {
+    labels: [,"2"," ",4," ",6," ",8," ",10," ",12," ",14," ",16," ",18," ",20," ",22," ",24," ",26," ",28," ",30],
+    datasets: [{
+      data: [3,4,5,3,0,0,4,2,2,8,8,2,2,1,7,4,4,3,3,3,2,6,2,2,1,1,1,7,8],
+      backgroundColor: gradient,
+      barThickness: 8,
+      borderRadius: 5
+    }]
+  };
+
+
+
 
   var myChart2 = new Chart(ctx2, {
     type: 'bar',
@@ -95,20 +125,30 @@
         legend: false
       },
       scales:{
-        bar: {groupWidth: "30%"}, // バーの太さ
+        // bar: {groupWidth: "30%"}, // バーの太さ
         y: {
           beginAtZero: true,
-          grid: {
-            display: false
-          }
+          ticks: {
+            stepSize: 2,
+            callback: function(tick) {
+              return tick.toString()+"h";
+            },
+        },
+        grid: {
+          display: false
+        }
         },
         x: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 2
+          },
           grid: {
             display:false
           }
-      }
-    
-    } 
+        }
+      
+    }
 }
   });
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>自主制作</title>
-  <link rel="stylesheet" href="assets/css/normalize.css">
+  <!-- <link rel="stylesheet" href="assets/css/normalize.css"> -->
   <link rel="stylesheet" href="assets/css/webtop.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,14 +24,13 @@
     <p>記録・投稿</p>
     <p>完了しました</p>
   </div>
+  <div class="loadingbox" id="js-loading">
+  <div class="loader">Loading...</div>
+</div>
   <script>
-    function getdate(){
-    console.log(this);
-
-    let date = Number(selecteddate.getAttribute('data-date'));
-    let month = Number(selecteddate.getAttribute('data-month'));
-    console.log(month +'月' + date + '日');
-    document.getElementById("modal__textarea").value = month +'月' + date + '日';
+    function getdate(date,month){
+    console.log('2020年'+month +'月' + date + '日');
+    document.getElementById("modal__textarea").value = '2020年'+ month +'月' + date + '日';
   }
   </script>
   <div class="calender">
@@ -130,7 +129,7 @@
           <h3 class="modal__h3">twitter用コメント</h3>
           <textarea name="" id="modal__textarea3" cols="80" rows="30" class="modal__textarea"></textarea>
           <br>
-          <label class="ECM_CheckboxInput2"><input class="ECM_CheckboxInput-Input2" type="checkbox"><span
+          <label class="ECM_CheckboxInput2"><input class="ECM_CheckboxInput-Input2" type="checkbox" id="js-twitter"><span
               class="ECM_CheckboxInput-DummyInput2"></span><span
               class="ECM_CheckboxInput-LabelText2">Twitterにシェアする</span></label>
         </div>
@@ -162,7 +161,7 @@
           </ul>
         </section>
         <section class="study-hours-bargraph" id="js-study-hours_bargraph">
-          <div>
+          <div class="hours-div">
             <canvas class="hours-bargraph" id="js-hours-bargraph"></canvas>
           </div>
         </section>
@@ -173,14 +172,16 @@
           <div>
           <canvas class="language_chart" id="js-study-language_chart">
           </canvas>
-          <ul id="js-language_chart_ul">
+          <ul id="js-language_chart_ul" class="language_chart">
             <span class="span" id="span1"></span><li>JavaScript</li>
             <span class="span" id="span2"></span><li>CSS</li>
-            <span class="span" id="span3"></span><li>PHP</li>
-            <span class="span" id="span4"></span><li>HTML</li>
+            <span class="span" id="span3"></span><li>PHP　　
+            </li>
+            <span class="span" id="span4"></span><li class="HTML">HTML</li>
             <span class="span" id="span5"></span><li>Larabel</li>
-            <span class="span" id="span6"></span><li>SQL</li>
+            <span class="span" id="span6"></span><li>SQL　　</li>
             <span class="span" id="span7"></span><li>SHELL</li>
+
             <span class="span" id="span8"></span><li>情報システム基礎知識（その他）</li>
           </ul>
           
@@ -191,9 +192,9 @@
           <div>
           <canvas class="contents_chart" id="js-study-contents_chart">
           </canvas>
-          <ul id="js-contents_chart_ul">
+          <ul class="contents_chart" id="js-contents_chart_ul">
             <span class="span" id="span9"></span><li>ドットインストール</li>
-            <span class="span" id="span10"></span><li>N予備校</li>
+            <span class="span" id="span10"></span><li>N予備校　　　　　</li>
             <span class="span" id="span11"></span><li>POSSE課題</li>
           </ul>
         </div>
@@ -206,7 +207,9 @@
       <span class="dli-chevron-round-right"></span>
     </div>
   </main>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
   <script src="assets/top.js"></script>
   <script src="assets/chart/chart.js"> </script>
 </body>
